@@ -1,0 +1,17 @@
+# dependencies
+/node_modules
+
+# build
+/dist
+
+# env
+.env
+
+# test
+/coverage
+
+# git
+/.git
+
+# logs
+*.log
