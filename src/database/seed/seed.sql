@@ -27,7 +27,8 @@ INSERT INTO "UAR_PERMISSIONS" ("CODE", "NAME", "DESCRIPTION") VALUES
   ('user:delete',   'Delete User',   'Menghapus user'),
   ('role:read',     'Read Roles',    'Melihat daftar role & permission'),
   ('role:assign',   'Assign Role',   'Memberi/melepas role pada user'),
-  ('permission:create', 'Create Permission', 'Menambah permission baru')
+  ('permission:create', 'Create Permission', 'Menambah permission baru'),
+  ('time-tracking:audit:read', 'Read Time Tracking Audit Log', 'Membaca audit log clock-in/clock-out')
 ON CONFLICT ("CODE") DO NOTHING;
 
 -- ===== ADMIN mendapat semua permission =====

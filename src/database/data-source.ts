@@ -1,7 +1,8 @@
 import 'dotenv/config';
 import { DataSource } from 'typeorm';
-import { DataStoreRecord, UarPermission, UarRole, UarRolePermissionMap, UarUser, UarUserRoleMap } from './entities';
+import { ClockAuditEntry, DataStoreRecord, UarPermission, UarRole, UarRolePermissionMap, UarUser, UarUserRoleMap } from './entities';
 import { InitTables1756000000000 } from './migrations/1756000000000-InitTables';
+import { CreateClockAuditEntries1756100000000 } from './migrations/1756100000000-CreateClockAuditEntries';
 
 /**
  * DataSource untuk TypeORM CLI (migration:generate / migration:run / dsb).
@@ -16,8 +17,8 @@ export const AppDataSource = new DataSource({
   password: process.env.DB_PASSWORD ?? 'postgres',
   database: process.env.DB_NAME ?? 'nest_fastify',
   ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
-  entities: [UarUser, UarRole, UarPermission, UarUserRoleMap, UarRolePermissionMap, DataStoreRecord],
-  migrations: [InitTables1756000000000],
+  entities: [UarUser, UarRole, UarPermission, UarUserRoleMap, UarRolePermissionMap, DataStoreRecord, ClockAuditEntry],
+  migrations: [InitTables1756000000000, CreateClockAuditEntries1756100000000],
   synchronize: false,
   logging: false,
 });
