@@ -10,6 +10,7 @@ import { CsrfModule } from './modules/csrf/csrf.module';
 import { CsrfGuard } from './modules/csrf/csrf.guard';
 import { HealthModule } from './modules/health/health.module';
 import { DataModule } from './modules/data/data.module';
+import { TimeTrackingModule } from './modules/time-tracking/time-tracking.module';
 import { JwtAuthGuard } from './modules/auth/guards/jwt-auth.guard';
 import { PermissionsGuard } from './modules/auth/guards/permissions.guard';
 import { TransformInterceptor } from './common/interceptors/transform.interceptor';
@@ -30,6 +31,7 @@ import { HttpLoggingInterceptor } from './common/interceptors/http-logging.inter
     CsrfModule, // Proteksi CSRF global (double-submit cookie + HMAC)
     HealthModule, // /health
     DataModule, // CRUD demo MongoDB/Redis/PostgreSQL
+    TimeTrackingModule, // audit log clock-in/clock-out (append-only)
   ],
   providers: [
     // CSRF check jalan PALING AWAL (sebelum auth) supaya request invalid fail-fast.

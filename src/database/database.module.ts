@@ -2,6 +2,7 @@ import { Global, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EnvConfig } from '../config/env/env.config';
 import {
+  ClockAuditEntry,
   DataStoreRecord,
   UarPermission,
   UarRole,
@@ -39,6 +40,7 @@ import {
       UarUserRoleMap,
       UarRolePermissionMap,
       DataStoreRecord,
+      ClockAuditEntry,
     ]),
   ],
   exports: [TypeOrmModule],
